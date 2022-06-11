@@ -1,0 +1,281 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CircularBusModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="A_Id" />
+    </Key>
+    <Property Name="A_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="A_UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="A_Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="A_Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="A_Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="A_Address" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="A_Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+    <Property Name="A_DateofBirth" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="A_Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BusInfo">
+    <Key>
+      <PropertyRef Name="B_Id" />
+    </Key>
+    <Property Name="B_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="B_Name" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="B_NoPlate" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="B_Type" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="B_Route" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="B_Time" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="B_Fair" Type="Int32" />
+    <Property Name="B_AvailableSeat" Type="Int32" />
+    <Property Name="B_OwnedBy" Type="Int32" />
+    <Property Name="B_SId" Type="Int32" />
+    <Property Name="B_Status" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="Self.FK_BusInfo_BusOwner" FromRole="BusInfo" ToRole="Users" />
+    <NavigationProperty Name="User1" Relationship="Self.FK_BusInfo_Supervisor" FromRole="BusInfo" ToRole="Users" />
+    <NavigationProperty Name="BusRoutes" Relationship="Self.FK_BusRoute_BusInfo" FromRole="BusInfo" ToRole="BusRoute" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Carts_BusInfo" FromRole="BusInfo" ToRole="Carts" />
+    <NavigationProperty Name="SoldTickets" Relationship="Self.FK_SoldTickets_BusInfo" FromRole="BusInfo" ToRole="SoldTicket" />
+  </EntityType>
+  <EntityType Name="BusOwner">
+    <Key>
+      <PropertyRef Name="O_Id" />
+    </Key>
+    <Property Name="O_Id" Type="Int32" Nullable="false" />
+    <Property Name="O_UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="O_Password" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="O_Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="O_Email" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="O_Address" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="O_Gender" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="O_DateofBirth" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="O_Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="BusRoute">
+    <Key>
+      <PropertyRef Name="BR_Id" />
+    </Key>
+    <Property Name="BR_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BR_BId" Type="Int32" />
+    <Property Name="BR_Start" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="BR_End" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="BR_Stopage1" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="BR_Stopage2" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="BR_Stopage3" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="BR_Time" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+    <Property Name="BR_FairInS1" Type="Int32" />
+    <Property Name="BR_FairInS2" Type="Int32" />
+    <Property Name="BR_FairInS3" Type="Int32" />
+    <NavigationProperty Name="BusInfo" Relationship="Self.FK_BusRoute_BusInfo" FromRole="BusRoute" ToRole="BusInfo" />
+  </EntityType>
+  <EntityType Name="Cart">
+    <Key>
+      <PropertyRef Name="CR_Id" />
+    </Key>
+    <Property Name="CR_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="U_Id" Type="Int32" />
+    <Property Name="B_Id" Type="Int32" />
+    <Property Name="Stopage" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="BS_Fair" Type="Int32" />
+    <NavigationProperty Name="BusInfo" Relationship="Self.FK_Carts_BusInfo" FromRole="Carts" ToRole="BusInfo" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Carts_Users" FromRole="Carts" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="SoldTicket">
+    <Key>
+      <PropertyRef Name="ST_Id" />
+    </Key>
+    <Property Name="ST_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ST_UId" Type="Int32" />
+    <Property Name="ST_Quantity" Type="Int32" />
+    <Property Name="ST_BId" Type="Int32" />
+    <Property Name="ST_BName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="ST_BNoPlate" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="ST_BType" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ST_BRoute" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="ST_Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BusInfo" Relationship="Self.FK_SoldTickets_BusInfo" FromRole="SoldTicket" ToRole="BusInfo" />
+    <NavigationProperty Name="User" Relationship="Self.FK_SoldTickets_User" FromRole="SoldTicket" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Supervisor">
+    <Key>
+      <PropertyRef Name="S_Id" />
+    </Key>
+    <Property Name="S_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="S_UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="S_Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="S_Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="S_Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="S_Address" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="S_Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+    <Property Name="S_DateofBirth" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="S_Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="U_Id" />
+    </Key>
+    <Property Name="U_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="U_UserName" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="U_Password" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="U_Phone" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+    <Property Name="U_Email" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="U_Address" Type="String" MaxLength="30" FixedLength="true" Unicode="true" />
+    <Property Name="U_Gender" Type="String" MaxLength="6" FixedLength="true" Unicode="true" />
+    <Property Name="U_DateofBirth" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="U_Role" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="U_Status" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="BusInfoes" Relationship="Self.FK_BusInfo_BusOwner" FromRole="Users" ToRole="BusInfo" />
+    <NavigationProperty Name="BusInfoes1" Relationship="Self.FK_BusInfo_Supervisor" FromRole="Users" ToRole="BusInfo" />
+    <NavigationProperty Name="Carts" Relationship="Self.FK_Carts_Users" FromRole="Users" ToRole="Carts" />
+    <NavigationProperty Name="SoldTickets" Relationship="Self.FK_SoldTickets_User" FromRole="Users" ToRole="SoldTicket" />
+    <NavigationProperty Name="Tokens" Relationship="CircularBusModel.FK_Tokens_Users" FromRole="User" ToRole="Token" />
+  </EntityType>
+  <Association Name="FK_BusInfo_BusOwner">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="BusInfo">
+        <PropertyRef Name="B_OwnedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusInfo_Supervisor">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="BusInfo">
+        <PropertyRef Name="B_SId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusRoute_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="BusRoute" Type="Self.BusRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="BusRoute">
+        <PropertyRef Name="BR_BId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="B_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoldTickets_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="SoldTicket" Type="Self.SoldTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="SoldTicket">
+        <PropertyRef Name="ST_BId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Cart" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="U_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoldTickets_User">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="SoldTicket" Type="Self.SoldTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="SoldTicket">
+        <PropertyRef Name="ST_UId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CircularBusEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Admins" EntityType="Self.Admin" />
+    <EntitySet Name="BusInfoes" EntityType="Self.BusInfo" />
+    <EntitySet Name="BusOwners" EntityType="Self.BusOwner" />
+    <EntitySet Name="BusRoutes" EntityType="Self.BusRoute" />
+    <EntitySet Name="Carts" EntityType="Self.Cart" />
+    <EntitySet Name="SoldTickets" EntityType="Self.SoldTicket" />
+    <EntitySet Name="Supervisors" EntityType="Self.Supervisor" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_BusInfo_BusOwner" Association="Self.FK_BusInfo_BusOwner">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusInfo" EntitySet="BusInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusInfo_Supervisor" Association="Self.FK_BusInfo_Supervisor">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusInfo" EntitySet="BusInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusRoute_BusInfo" Association="Self.FK_BusRoute_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfoes" />
+      <End Role="BusRoute" EntitySet="BusRoutes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_BusInfo" Association="Self.FK_Carts_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfoes" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoldTickets_BusInfo" Association="Self.FK_SoldTickets_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfoes" />
+      <End Role="SoldTicket" EntitySet="SoldTickets" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_Users" Association="Self.FK_Carts_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoldTickets_User" Association="Self.FK_SoldTickets_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SoldTicket" EntitySet="SoldTickets" />
+    </AssociationSet>
+    <EntitySet Name="Tokens" EntityType="CircularBusModel.Token" />
+    <AssociationSet Name="FK_Tokens_Users" Association="CircularBusModel.FK_Tokens_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Token" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Token">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="AccessToken" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedAt" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ExpiredAt" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="User" Relationship="CircularBusModel.FK_Tokens_Users" FromRole="Token" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Tokens_Users">
+    <End Type="CircularBusModel.User" Role="User" Multiplicity="1" />
+    <End Type="CircularBusModel.Token" Role="Token" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Token">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

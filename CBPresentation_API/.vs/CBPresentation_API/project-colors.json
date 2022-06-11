@@ -1,0 +1,21 @@
+{
+  "Version": 1,
+  "ProjectMap": {
+    "9889685c-1c1c-4974-9278-c5840e45713a": {
+      "ProjectGuid": "9889685c-1c1c-4974-9278-c5840e45713a",
+      "DisplayName": "CBPresentation_API",
+      "ColorIndex": 0
+    },
+    "99c2cc13-a895-47ac-9334-e40aaaa3e9dd": {
+      "ProjectGuid": "99c2cc13-a895-47ac-9334-e40aaaa3e9dd",
+      "DisplayName": "BLL",
+      "ColorIndex": 1
+    },
+    "dff89fc2-e260-4cd2-bfe2-1889cf0a6126": {
+      "ProjectGuid": "dff89fc2-e260-4cd2-bfe2-1889cf0a6126",
+      "DisplayName": "DAL",
+      "ColorIndex": 2
+    }
+  },
+  "NextColorIndex": 3
+}

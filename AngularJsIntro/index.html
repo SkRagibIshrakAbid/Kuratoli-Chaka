@@ -1,0 +1,65 @@
+
+<html>
+	<head>
+			<!--	
+				<script src="js/angular.js"></script>
+			-->
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+			<!-- CSS only -->
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+			<script>
+					var app = angular.module('myapp',[]);
+
+
+
+					app.controller('httpget',function($scope,$http){
+						$http.get("https://localhost:44399/api/user")
+						.then(function(response){
+							$scope.Users = response.data;
+							
+
+						});
+					});
+			</script>
+	</head>
+	
+	<body ng-app="myapp">
+
+		<link href="IndexCss.css" rel="stylesheet" id="bootstrap-css">
+
+
+    <div class="container">
+        <h1 class="text-center">General View</h1>
+        <hr class="my-5" />
+      	<h4>All Pages Links</h4>
+				<div class="row mt-3">
+
+					<div class="col">
+							<button class="col btn btn-dark-moon btn-rounded"><a href="BusRoute.html">Bus Rout List</a></button>
+					</div>
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="BusReport.html" >Bus Report List</a></button>
+					</div>
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="UserList.html" >User List</a></button>
+					</div>
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="Cart.html" >History</a></button>
+					</div>
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="UserProfile.html" >User Profile</a></button>
+					</div>
+
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="Sdashboard.html" >SuperVisor Profile</a></button>
+					</div>
+
+					<div class="col">
+						<button class="col btn btn-dark-moon btn-rounded"><a href="AssignedBus.html" >Assiged Bus</a></button>
+					</div>
+				</div>
+    </div>
+	
+		
+	</body>
+</html>

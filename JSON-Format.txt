@@ -1,0 +1,45 @@
+FOR USER------------------------------
+
+{
+	"U_Id" : 30,
+	"U_UserName" : "Rahim",
+	"U_Password" : "5555555",
+	"U_Phone" : "0123456789",
+	"U_Email" : "r@gmail.com",
+	"U_Address" : "Kuril",
+	"U_Gender" : "Male",
+	"U_DateofBirth" : "02-02-1988",
+	"U_Role" : "User",
+	"U_Status" : "NULL"
+}
+
+FOR BUS OWNER-----------------------
+
+{
+	"O_Id" : 30,
+	"O_UserName" : "Kalam",
+	"O_Password" : "5555555",
+	"O_Phone" : "0123456789",
+	"O_Email" : "r@gmail.com",
+	"O_Address" : "Kuril",
+	"O_Gender" : "Male",
+	"O_DateofBirth" : "02-02-1988",
+	"O_Role" : "Owner",
+}
+
+
+FOR BUS INFO-----------------------
+
+{
+	"B_Id" : 7,
+	"B_Name" : "Pink",
+	"B_NoPlate" : "D-Metro10-13-12",
+	"B_Type" : "AC",
+	"B_Route" : "Malibagh to Kuril",
+	"B_Time" : "8am",
+	"B_Fair" : 40,
+	"B_AvailableSeat" : 30,
+	"B_OwnedBy" : 23,
+	"B_SId" : 2,
+	"B_Status" : "Active"
+}

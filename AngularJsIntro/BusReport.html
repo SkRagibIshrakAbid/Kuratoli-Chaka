@@ -1,0 +1,69 @@
+<html>
+	<head>
+			<!--	
+				<script src="js/angular.js"></script>
+			-->
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+			<!-- CSS only -->
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+			<script>
+					var app = angular.module('myapp',[]);
+
+
+					app.controller('httpget',function($scope,$http){
+						$http.get("https://localhost:44399/api/cart/bus/5")
+						.then(function(response){
+							$scope.Carts = response.data;
+						
+						});
+					});
+			</script>
+	</head>
+	
+	<body ng-app="myapp">
+		<link rel="stylesheet" href="CSS.css" />
+			<div class="container" ng-controller="httpget" >
+				<div class="row">
+						<div class="col-md-offset-1 col-md-20">
+								<div class="panel" >
+										<div class="panel-heading">
+												<div class="row">
+														<div class="col col-sm-3 col-xs-12">
+																<h4 class="title">Bus Earning <span>List</span></h4>
+														</div>
+														<div class="col-sm-9 col-xs-12 text-right">
+															<a href="Index.html" class="btn btn-primary">Home</a>	
+														</div>
+												</div>
+										</div>
+										<div class="panel-body table-responsive" ng-controller="httpget">
+												<table class="table">
+													<thead>
+														<th>#</th>
+														
+														<th>Bus Id</th>
+														<th>Stopage</th>
+														<th>Bus Fair</th>
+												
+													</thead>
+														<tbody>
+															<tr ng-repeat="c in Carts">
+																<td>{{c.CR_Id}}</td>
+																
+																<td>{{c.B_Id}}</td>
+																<td>{{c.Stopage}}</td>
+																<td>{{c.BS_Fair}}</td>
+																
+														</tr>
+														</tbody>
+												</table>
+										</div>
+										
+								</div>
+						</div>
+				</div>
+		</div>
+
+
+	</body>
+</html>

@@ -1,0 +1,14 @@
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\obj\Debug\BLL.csproj.AssemblyReference.cache
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\obj\Debug\BLL.csproj.CoreCompileInputs.cache
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\BLL.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\BLL.pdb
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\DAL.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\EntityFramework.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\DAL.pdb
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\DAL.dll.config
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\EntityFramework.xml
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\obj\Debug\BLL.csproj.CopyComplete
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\obj\Debug\BLL.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\obj\Debug\BLL.pdb
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\AutoMapper.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\BLL\bin\Debug\AutoMapper.xml

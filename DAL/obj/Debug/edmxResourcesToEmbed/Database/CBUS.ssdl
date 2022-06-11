@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CircularBusModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="A_Id" />
+    </Key>
+    <Property Name="A_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="A_UserName" Type="nchar" MaxLength="20" />
+    <Property Name="A_Password" Type="nchar" MaxLength="20" />
+    <Property Name="A_Phone" Type="nchar" MaxLength="11" />
+    <Property Name="A_Email" Type="nchar" MaxLength="20" />
+    <Property Name="A_Address" Type="nchar" MaxLength="30" />
+    <Property Name="A_Gender" Type="nchar" MaxLength="6" />
+    <Property Name="A_DateofBirth" Type="nchar" MaxLength="20" />
+    <Property Name="A_Role" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="BusInfo">
+    <Key>
+      <PropertyRef Name="B_Id" />
+    </Key>
+    <Property Name="B_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="B_Name" Type="nchar" MaxLength="20" />
+    <Property Name="B_NoPlate" Type="nchar" MaxLength="20" />
+    <Property Name="B_Type" Type="nchar" MaxLength="10" />
+    <Property Name="B_Route" Type="nchar" MaxLength="30" />
+    <Property Name="B_Time" Type="nchar" MaxLength="15" />
+    <Property Name="B_Fair" Type="int" />
+    <Property Name="B_AvailableSeat" Type="int" />
+    <Property Name="B_OwnedBy" Type="int" />
+    <Property Name="B_SId" Type="int" />
+    <Property Name="B_Status" Type="nchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="BusOwner">
+    <Key>
+      <PropertyRef Name="O_Id" />
+    </Key>
+    <Property Name="O_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="O_UserName" Type="nchar" MaxLength="20" />
+    <Property Name="O_Password" Type="nchar" MaxLength="15" />
+    <Property Name="O_Phone" Type="nchar" MaxLength="11" />
+    <Property Name="O_Email" Type="nchar" MaxLength="15" />
+    <Property Name="O_Address" Type="nchar" MaxLength="30" />
+    <Property Name="O_Gender" Type="nchar" MaxLength="10" />
+    <Property Name="O_DateofBirth" Type="nchar" MaxLength="20" />
+    <Property Name="O_Role" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="BusRoute">
+    <Key>
+      <PropertyRef Name="BR_Id" />
+    </Key>
+    <Property Name="BR_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="BR_BId" Type="int" />
+    <Property Name="BR_Start" Type="nchar" MaxLength="20" />
+    <Property Name="BR_End" Type="nchar" MaxLength="20" />
+    <Property Name="BR_Stopage1" Type="nchar" MaxLength="20" />
+    <Property Name="BR_Stopage2" Type="nchar" MaxLength="20" />
+    <Property Name="BR_Stopage3" Type="nchar" MaxLength="20" />
+    <Property Name="BR_Time" Type="nchar" MaxLength="15" />
+    <Property Name="BR_FairInS1" Type="int" />
+    <Property Name="BR_FairInS2" Type="int" />
+    <Property Name="BR_FairInS3" Type="int" />
+  </EntityType>
+  <EntityType Name="Carts">
+    <Key>
+      <PropertyRef Name="CR_Id" />
+    </Key>
+    <Property Name="CR_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_Id" Type="int" />
+    <Property Name="B_Id" Type="int" />
+    <Property Name="Stopage" Type="nchar" MaxLength="30" />
+    <Property Name="BS_Fair" Type="int" />
+  </EntityType>
+  <EntityType Name="SoldTicket">
+    <Key>
+      <PropertyRef Name="ST_Id" />
+    </Key>
+    <Property Name="ST_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ST_UId" Type="int" />
+    <Property Name="ST_Quantity" Type="int" />
+    <Property Name="ST_BId" Type="int" />
+    <Property Name="ST_BName" Type="nchar" MaxLength="20" />
+    <Property Name="ST_BNoPlate" Type="nchar" MaxLength="20" />
+    <Property Name="ST_BType" Type="nchar" MaxLength="10" />
+    <Property Name="ST_BRoute" Type="nchar" MaxLength="30" />
+    <Property Name="ST_Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Supervisor">
+    <Key>
+      <PropertyRef Name="S_Id" />
+    </Key>
+    <Property Name="S_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="S_UserName" Type="nchar" MaxLength="20" />
+    <Property Name="S_Password" Type="nchar" MaxLength="20" />
+    <Property Name="S_Phone" Type="nchar" MaxLength="11" />
+    <Property Name="S_Email" Type="nchar" MaxLength="20" />
+    <Property Name="S_Address" Type="nchar" MaxLength="30" />
+    <Property Name="S_Gender" Type="nchar" MaxLength="6" />
+    <Property Name="S_DateofBirth" Type="nchar" MaxLength="20" />
+    <Property Name="S_Role" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Tokens">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="int" Nullable="false" />
+    <Property Name="AccessToken" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="CreatedAt" Type="datetime" Nullable="false" />
+    <Property Name="ExpiredAt" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="U_Id" />
+    </Key>
+    <Property Name="U_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="U_UserName" Type="nchar" MaxLength="20" />
+    <Property Name="U_Password" Type="nchar" MaxLength="20" />
+    <Property Name="U_Phone" Type="nchar" MaxLength="11" />
+    <Property Name="U_Email" Type="nchar" MaxLength="20" />
+    <Property Name="U_Address" Type="nchar" MaxLength="30" />
+    <Property Name="U_Gender" Type="nchar" MaxLength="6" />
+    <Property Name="U_DateofBirth" Type="nchar" MaxLength="20" />
+    <Property Name="U_Role" Type="nchar" MaxLength="10" />
+    <Property Name="U_Status" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <Association Name="FK_BusInfo_BusOwner">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="BusInfo">
+        <PropertyRef Name="B_OwnedBy" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusInfo_Supervisor">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="BusInfo">
+        <PropertyRef Name="B_SId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BusRoute_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="BusRoute" Type="Self.BusRoute" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="BusRoute">
+        <PropertyRef Name="BR_BId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="B_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Carts_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="Carts" Type="Self.Carts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Carts">
+        <PropertyRef Name="U_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoldTickets_BusInfo">
+    <End Role="BusInfo" Type="Self.BusInfo" Multiplicity="0..1" />
+    <End Role="SoldTicket" Type="Self.SoldTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BusInfo">
+        <PropertyRef Name="B_Id" />
+      </Principal>
+      <Dependent Role="SoldTicket">
+        <PropertyRef Name="ST_BId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SoldTickets_User">
+    <End Role="Users" Type="Self.Users" Multiplicity="0..1" />
+    <End Role="SoldTicket" Type="Self.SoldTicket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="SoldTicket">
+        <PropertyRef Name="ST_UId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Tokens_Users">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="Tokens" Type="Self.Tokens" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="U_Id" />
+      </Principal>
+      <Dependent Role="Tokens">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="CircularBusModelStoreContainer">
+    <EntitySet Name="Admin" EntityType="Self.Admin" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusInfo" EntityType="Self.BusInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusOwner" EntityType="Self.BusOwner" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BusRoute" EntityType="Self.BusRoute" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Carts" EntityType="Self.Carts" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SoldTicket" EntityType="Self.SoldTicket" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Supervisor" EntityType="Self.Supervisor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tokens" EntityType="Self.Tokens" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_BusInfo_BusOwner" Association="Self.FK_BusInfo_BusOwner">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusInfo" EntitySet="BusInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusInfo_Supervisor" Association="Self.FK_BusInfo_Supervisor">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="BusInfo" EntitySet="BusInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BusRoute_BusInfo" Association="Self.FK_BusRoute_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfo" />
+      <End Role="BusRoute" EntitySet="BusRoute" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_BusInfo" Association="Self.FK_Carts_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfo" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Carts_Users" Association="Self.FK_Carts_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Carts" EntitySet="Carts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoldTickets_BusInfo" Association="Self.FK_SoldTickets_BusInfo">
+      <End Role="BusInfo" EntitySet="BusInfo" />
+      <End Role="SoldTicket" EntitySet="SoldTicket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SoldTickets_User" Association="Self.FK_SoldTickets_User">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="SoldTicket" EntitySet="SoldTicket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Tokens_Users" Association="Self.FK_Tokens_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Tokens" EntitySet="Tokens" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

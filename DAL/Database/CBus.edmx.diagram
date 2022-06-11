@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ef6495a995e54577b176115212df830b" Name="Diagram1">
+        <EntityTypeShape EntityType="CircularBusModel.Admin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.BusInfo" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.BusOwner" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.BusRoute" Width="1.5" PointX="5.25" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.Cart" Width="1.5" PointX="8.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.SoldTicket" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.Supervisor" Width="1.5" PointX="7.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CircularBusModel.User" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <AssociationConnector Association="CircularBusModel.FK_BusInfo_BusOwner" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_BusInfo_Supervisor" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_BusRoute_BusInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_Carts_BusInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_SoldTickets_BusInfo" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_Carts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="CircularBusModel.FK_SoldTickets_User" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="CircularBusModel.Token" Width="1.5" PointX="3" PointY="9.5" />
+        <AssociationConnector Association="CircularBusModel.FK_Tokens_Users" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

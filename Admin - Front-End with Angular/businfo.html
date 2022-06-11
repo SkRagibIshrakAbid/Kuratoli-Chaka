@@ -1,0 +1,80 @@
+<html>
+	<head>
+			<!--	
+				<script src="js/angular.js"></script>
+			-->
+			<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+			<!-- CSS only -->
+			<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+			<!-- icon link -->
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+
+			<script>
+					var app = angular.module('myapp2',[]);
+
+
+					app.controller('httpget',function($scope,$http){
+						$http.get("https://localhost:44399/api/admin/businfo/all")
+						.then(function(response){
+							$scope.AdminBusInfoModel = response.data;
+							
+
+						});
+					});
+			</script>
+	</head>
+	
+	<body ng-app="myapp2" class="bg-warning">
+		<!-- nabvar start -->
+		<nav class="navbar navbar-light bg-dark p-4">
+		  <div class="container">
+		    <a href="admin_dashboard.html" class="text-warning" style="text-decoration: none;"><h3 class="">AdminDashboard</h3></a>
+		    <a href="admin_dashboard.html" class="text-warning" style="text-decoration: none;">← Go to Dashboard</a>
+		  </div>
+		</nav>
+		<!-- nabvar end <-->
+
+		<div class="container p-4">
+			<!-- Top title -->
+			<div class="bg-dark">
+				<p class="text-light d-inline"><i class="bi bi-bootstrap" style="font-size:50px; margin-left: 20px;"></i></p>
+				<h2 class="text-uppercase text-light p-4 text-center d-inline-block" style="margin-left: -10px;">all Bus Info</h2>
+				<a href="error/index.html" class="btn btn-success btn-lg float-end m-4">Add Bus</a>
+			</div>
+			<!-- Top title end -->
+			<div ng-controller="httpget">
+				<table class="table table-bordered table-warning table-striped border-dark table-hover">
+					<thead>
+						<th>Id</th>
+						<th>Name</th>
+						<th>No Plate</th>
+						<th>Type</th>
+						<th>Route</th>
+						<th>Time</th>
+						<th>Available Seat</th>
+						<th>Edit</th>
+						<th>Delete</th>
+
+					</thead>
+					<tbody>
+						 <tr ng-repeat="u in AdminBusInfoModel">
+								<td>{{u.B_Id}}</td>
+								<td>{{u.B_Name}}</td>
+								<td>{{u.B_NoPlate}}</td>
+								<td>{{u.B_Type}}</td>
+								<td>{{u.B_Route}}</td>
+								<td>{{u.B_Time}}</td>
+								<td>{{u.B_AvailableSeat}}</td>
+								<td><a href="error/index.html" class="btn btn-primary btn-sm">Edit</a></td>
+								<td><a href="error/index.html" class="btn btn-danger btn-sm">Delete</a></td>
+
+						 </tr>
+					</tbody>
+				</table>
+
+			</div>
+		</div>
+
+	
+	</body>
+</html>

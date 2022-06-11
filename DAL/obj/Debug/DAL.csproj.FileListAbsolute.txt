@@ -1,0 +1,10 @@
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\bin\Debug\DAL.dll.config
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\bin\Debug\DAL.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\bin\Debug\DAL.pdb
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\bin\Debug\EntityFramework.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\bin\Debug\EntityFramework.xml
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\obj\Debug\DAL.csproj.AssemblyReference.cache
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\obj\Debug\DAL.csproj.CopyComplete
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\obj\Debug\DAL.dll
+D:\Study\UN\Semister 10\ADVANCED PROGRAMMING WITH .NET [A]\A.Net-Project\Final\DAL\obj\Debug\DAL.pdb
